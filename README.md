@@ -1,4 +1,5 @@
-## Description
+
+## Description
 
 This project assembles an artificial neural network, that uses the TensorFlow framework to classify numbers from 0 to 5 using images of sign language.
 
@@ -8,7 +9,7 @@ For this project we use a substet from the SIGNS dataset:
 
 * Test set: 120 pictures (64 by 64 pixels) of signs representing numbers from 0 to 5 (20 pictures per number).
 
-## Neural Network
+## Neural Network Architecture
 
 The neural network architecture has four hidden layers with 100, 25 and 12 hidden units, plus the softmax output layer with 6 units.
 
