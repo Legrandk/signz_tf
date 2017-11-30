@@ -19,7 +19,7 @@ HPARAMS = {
     "hidden_layers": [ 100, 25, 12, 6],
     "nb_epochs": 800,
     "batch_size": 64,
-    "l2_reg": 2.8
+    "l2_reg": 1.4
 }
 
 def nn_model_fn( features, labels, params, mode):
@@ -45,16 +45,7 @@ def nn_model_fn( features, labels, params, mode):
 
 
     # TRAIN
-    #https://stackoverflow.com/questions/37107223/how-to-add-regularizations-in-tensorflow
-    """
-    reg_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
-    reg_constant = 0.01  # Choose an appropriate one.
-    loss = my_normal_loss + reg_constant * sum(reg_losses)
-    """
-
     onehot_labels = tf.one_hot( indices = tf.cast(labels, tf.int32), depth = 6)
-    #reg_cost = 0
-    #if ( 0 < HPARAMS["l2_reg"]):
     reg_cost = HPARAMS["l2_reg"] * sum( tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES))
     cost = tf.reduce_mean( tf.nn.softmax_cross_entropy_with_logits( logits=logits, labels=onehot_labels), name="cost_tensor") + reg_cost
 
