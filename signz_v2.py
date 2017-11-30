@@ -1,8 +1,3 @@
-""" 
-This Artificial Neural Network uses TF Model to classify
-6 differents signs made using one hand: 0, 1, 2, 3, 4, 5 
-"""
-
 import numpy as np
 import tensorflow as tf
 from tensorflow.python.framework import ops
